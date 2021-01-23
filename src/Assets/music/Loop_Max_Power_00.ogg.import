@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Loop_Max_Power_00.ogg-93a313aea832989f59317fe575fa4ef8.oggstr"
+
+[deps]
+
+source_file="res://Assets/music/Loop_Max_Power_00.ogg"
+dest_files=[ "res://.import/Loop_Max_Power_00.ogg-93a313aea832989f59317fe575fa4ef8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

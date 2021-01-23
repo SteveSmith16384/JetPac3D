@@ -1,0 +1,132 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/models/purple_planet.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/models/exolon_logo-0-Exolon_Logo.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Assets/backgrounds/background1.png" type="Texture" id=4]
+[ext_resource path="res://IntroScene.gd" type="Script" id=5]
+[ext_resource path="res://Assets/music/exolon-title-music-trance-metal-remix.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Resources/GUI_Theme.tres" type="Theme" id=7]
+[ext_resource path="res://Resources/GUI_Theme_Font_Large.tres" type="Theme" id=8]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0.301961, 0.988235, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.12549, 1, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 1, 0.984314, 0, 1 )
+
+[sub_resource type="PanoramaSky" id=5]
+panorama = ExtResource( 4 )
+
+[sub_resource type="Environment" id=6]
+background_mode = 2
+background_sky = SubResource( 5 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="QuadMesh" id=7]
+size = Vector2( 0.2, 0.2 )
+
+[node name="IntroScene" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="LogoSpatial" type="Spatial" parent="."]
+
+[node name="LogoMesh" type="MeshInstance" parent="LogoSpatial"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -0.613913, -0.192554 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="Planet1" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72359, -3.21602 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+
+[node name="Planet2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53825, 1.16205, 4.27863 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Planet3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15491, -4.54796, -1.49218 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="Planet4" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54429, -4.65486, -1.03374 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 4 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.45172 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 6 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.798184, -0.598889, -0.065072, 0.591266, 0.758145, 0.274992, -0.115356, -0.257969, 0.959242, 10.0072, 6.32813, 5.76787 )
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.55412 )
+amount = 10
+lifetime = 0.5
+mesh = SubResource( 7 )
+emission_shape = 2
+emission_box_extents = Vector3( 20, 15, 1 )
+direction = Vector3( 0, 0, 1 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="VersionLabel" type="Label" parent="Node2D"]
+margin_left = 906.505
+margin_top = 572.283
+margin_right = 1010.5
+margin_bottom = 589.283
+theme = ExtResource( 7 )
+text = "VERSION 0.1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartLabel" type="Label" parent="Node2D"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 450.416
+margin_top = 406.375
+margin_right = 654.416
+margin_bottom = 423.375
+theme = ExtResource( 8 )
+text = "PRESS FIRE TO START!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Disclaimer" type="Label" parent="Node2D"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 256.864
+margin_top = 17.9368
+margin_right = 818.864
+margin_bottom = 34.9368
+theme = ExtResource( 8 )
+text = "EARLY PREVIEW: THIS GAME ONLY CONTAINS THE FIRST LEVEL!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
