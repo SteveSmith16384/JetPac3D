@@ -120,22 +120,6 @@ func play_audio(path):
 	$AudioStreamPlayer_Generic.play()
 	
 
-func update_rockets_label(num : int):
-	$HUD.update_rockets_label(num)
-	pass
-	
-
-func update_ammo_label(s : String):
-	$HUD.update_ammo_label(s)
-	pass
-	
-	
-func play_clang():
-	#$Audio_Clang.play()  Too irritating?
-	pass
-	
-
-
 func _on_RestartPosTimer_timeout():
 	if $Player.alive == false:
 		return

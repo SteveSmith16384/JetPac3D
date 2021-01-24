@@ -25,7 +25,6 @@ func _process(delta):
 			main.collision(col.collider)
 			#col.collider.queue_free()
 		else:
-			main.play_clang()
 			main.tiny_explosion(self)
 		queue_free()
 	pass

@@ -108,7 +108,6 @@ func play_footstep():
 func restart(trans):
 	self.translation = trans
 	alive = true
-	self.set_num_rockets(10)
 	pass
 	
 	

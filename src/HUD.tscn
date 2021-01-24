@@ -134,45 +134,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AmmoLabel" type="Label" parent="InGame/HBoxContainer"]
-margin_top = 1.0
-margin_right = 72.0
-margin_bottom = 38.0
-theme = ExtResource( 2 )
-text = "AMMO: 0
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NumRocketsLabel" type="Label" parent="InGame/HBoxContainer"]
-margin_left = 152.0
-margin_top = 1.0
-margin_right = 255.0
-margin_bottom = 38.0
-theme = ExtResource( 2 )
-text = "ROCKETS: 0
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ScoreLabel" type="Label" parent="InGame/HBoxContainer"]
-margin_left = 335.0
+margin_left = 164.0
 margin_top = 1.0
-margin_right = 407.0
+margin_right = 243.0
 margin_bottom = 38.0
 theme = ExtResource( 2 )
-text = "AMMO: 0
+text = "SCORE: 0
 "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LivesLabel" type="Label" parent="InGame/HBoxContainer"]
-margin_left = 487.0
+margin_left = 323.0
 margin_top = 1.0
-margin_right = 559.0
+margin_right = 395.0
 margin_bottom = 38.0
 theme = ExtResource( 2 )
 text = "AMMO: 0

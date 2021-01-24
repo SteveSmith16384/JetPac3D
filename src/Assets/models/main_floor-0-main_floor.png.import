@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/purple_planet.png-9b083026780f796027ca5a31fad2d325.s3tc.stex"
-path.etc2="res://.import/purple_planet.png-9b083026780f796027ca5a31fad2d325.etc2.stex"
+path.s3tc="res://.import/main_floor-0-main_floor.png-e2f55db5bd883389965a659fa4d42d1c.s3tc.stex"
+path.etc2="res://.import/main_floor-0-main_floor.png-e2f55db5bd883389965a659fa4d42d1c.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/models/purple_planet.png"
-dest_files=[ "res://.import/purple_planet.png-9b083026780f796027ca5a31fad2d325.s3tc.stex", "res://.import/purple_planet.png-9b083026780f796027ca5a31fad2d325.etc2.stex" ]
+source_file="res://Assets/models/main_floor-0-main_floor.png"
+dest_files=[ "res://.import/main_floor-0-main_floor.png-e2f55db5bd883389965a659fa4d42d1c.s3tc.stex", "res://.import/main_floor-0-main_floor.png-e2f55db5bd883389965a659fa4d42d1c.etc2.stex" ]
 
 [params]
 

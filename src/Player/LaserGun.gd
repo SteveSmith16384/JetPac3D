@@ -1,8 +1,8 @@
 extends Spatial
 
-const laser_fire_rate = 0.2
-const clip_size = 5
-const laser_reload_rate = 1
+const laser_fire_rate = 0.1
+const clip_size = 15
+const laser_reload_rate = .5
 const ads_acceleration : float = 0.3
 
 export var default_position : Vector3
@@ -26,7 +26,6 @@ func _ready():
 	camera.fov = 70
 	
 	main = get_tree().get_root().get_node("Main")
-	update_ammo_label()
 	pass
 
 	
@@ -48,7 +47,6 @@ func _process(delta):
 
 
 func fire_bullet():
-	#print("Fired bullet")
 	can_laser_fire = false
 	current_ammo -= 1
 	var bullet : Bullet = Bullet.instance()
@@ -58,8 +56,6 @@ func fire_bullet():
 	bullet.transform = global_transform
 	bullet.translation = get_node("Muzzle").global_transform.origin
 	
-	update_ammo_label()
-
 	yield(get_tree().create_timer(laser_fire_rate), "timeout")
 
 	if current_ammo <= 0:
@@ -70,24 +66,12 @@ func fire_bullet():
 
 
 func reload():
-	#print("Reloading")
 	laser_reloading = true
-	update_ammo_label()
 
 	yield(get_tree().create_timer(laser_reload_rate), "timeout")
 
 	current_ammo = clip_size
 	laser_reloading = false
-	update_ammo_label()
 	pass
 
-
-func update_ammo_label():
-	if laser_reloading:
-		main.update_ammo_label("Reloading...")
-		pass
-	else:
-		main.update_ammo_label("%d / %d" % [current_ammo, clip_size])
-		pass
-	pass
 

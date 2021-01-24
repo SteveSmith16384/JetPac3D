@@ -12,16 +12,6 @@ func _ready():
 	pass
 
 
-func update_rockets_label(num_rockets : int):
-	$InGame/HBoxContainer/NumRocketsLabel.set_text("GRENADES: " + str(num_rockets))
-	pass
-
-	
-func update_ammo_label(s : String):
-	$InGame/HBoxContainer/AmmoLabel.set_text("AMMO: " + s)
-	pass
-	
-	
 func update_score_label(s : int):
 	$InGame/HBoxContainer/ScoreLabel.set_text("SCORE: " + str(s))
 	pass
@@ -42,8 +32,6 @@ func show_game_over():
 	$GameOver.visible = true
 	pass
 	
-
-
 
 func _on_Timer_timeout():
 	$FPSLabel.set_text("FPS: " + str(Engine.get_frames_per_second()))

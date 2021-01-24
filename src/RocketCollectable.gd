@@ -1,7 +1,5 @@
 extends KinematicBody
 
-var destroyed_by_rocket
-
 var main : Main
 var player : Player
 
