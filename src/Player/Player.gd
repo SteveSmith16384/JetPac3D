@@ -4,12 +4,10 @@ extends KinematicBody
 const speed = 7
 const acceleration = 5
 const gravity = 0.98
-const jump_power = 30
+const jetpac_power = 4
 const mouse_sensitivity = 0.3
 
 var main : Main
-
-var destroyed_by_bullet # Need this so players get harmed by enemy bullets!
 
 onready var head = $Head
 onready var camera = $Head/Camera
@@ -67,7 +65,11 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("move_right"):
 		play_footstep = true
 		direction += head_basis.x
-	
+
+	if Input.is_action_pressed("jump"):
+		velocity.y += jetpac_power
+		pass
+		
 	direction = direction.normalized()
 	
 	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
@@ -78,7 +80,6 @@ func _physics_process(delta):
 		var coll = get_slide_collision(0).get_collider()
 		if coll.has_method("collided"):
 			coll.collided(self)
-			#coll.queue_free()
 		pass
 	
 	if play_footstep:
@@ -104,6 +105,7 @@ func play_footstep():
 	yield(get_tree().create_timer(.45), "timeout")
 	actually_play_footstep = true
 	pass
+
 
 func restart(trans):
 	self.translation = trans
