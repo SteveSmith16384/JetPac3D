@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://MainFloor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Floor1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Level1.gd" type="Script" id=3]
 
 [node name="Level1" type="Spatial"]
+script = ExtResource( 3 )
 
 [node name="MainFloor" parent="." instance=ExtResource( 1 )]
 
@@ -15,3 +17,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.84657, 10.6374, 2.93645 )
 
 [node name="Floor3" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.55773, 9.35803, 2.93645 )
+
+[node name="EnemySpawn_Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="EnemySpawnPos" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6015, 7.17896, 4.0417 )
+[connection signal="timeout" from="EnemySpawn_Timer" to="." method="_on_EnemySpawn_Timer_timeout"]
