@@ -8,4 +8,10 @@
 [node name="MainFloor" parent="." instance=ExtResource( 1 )]
 
 [node name="Floor1" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46906, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.46906, 2.93645 )
+
+[node name="Floor2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.84657, 10.6374, 2.93645 )
+
+[node name="Floor3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.55773, 9.35803, 2.93645 )

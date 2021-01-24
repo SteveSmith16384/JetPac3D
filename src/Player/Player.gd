@@ -4,7 +4,7 @@ extends KinematicBody
 const speed = 7
 const acceleration = 5
 const gravity = 0.98
-const jetpac_power = 4
+const jetpac_power = 2#4
 const mouse_sensitivity = 0.3
 
 var main : Main
