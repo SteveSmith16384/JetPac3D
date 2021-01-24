@@ -1,17 +1,19 @@
 extends KinematicBody
 
+const destroyed_by_bullet = true
+
 const value = 50
+const speed = 7
 
 
 var main : Main
 var player
-var speed
 
 func _ready():
 	main = get_tree().get_root().get_node("Main")
 	player = main.get_node("Player")
 
-	speed = Globals.rnd.randi_range(7, 13)
+	#speed = Globals.rnd.randi_range(7, 13)
 	
 	var mat = SpatialMaterial.new()
 	var c = Globals.rnd.randi_range(1, 3)

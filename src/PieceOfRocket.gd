@@ -1,4 +1,5 @@
-extends KinematicBody
+extends StaticBody
+
 
 var main : Main
 var player : Player
@@ -15,4 +16,3 @@ func collided(coll):
 		main.play_audio("res://Assets/sfx/Replenish.wav")
 		queue_free()
 	pass
-

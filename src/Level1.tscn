@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://MainFloor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Floor1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Level1.gd" type="Script" id=3]
+[ext_resource path="res://RocketBottom.tscn" type="PackedScene" id=4]
+[ext_resource path="res://RocketTop.tscn" type="PackedScene" id=5]
+[ext_resource path="res://RocketMiddle.tscn" type="PackedScene" id=6]
 
 [node name="Level1" type="Spatial"]
 script = ExtResource( 3 )
@@ -18,10 +21,25 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.84657, 10.6374, 2.93645 )
 [node name="Floor3" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.55773, 9.35803, 2.93645 )
 
+[node name="RocketBottom" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.48904, 0, 3.87947 )
+
+[node name="RocketMiddle" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.495365, 5.63231, 3.96292 )
+
+[node name="RocketTop" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00588, 6.61468, 4.06907 )
+
 [node name="EnemySpawn_Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
 [node name="EnemySpawnPos" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6015, 7.17896, 4.0417 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.202237, -0.93922, 0.277427, -0.553266, 0.343315, 0.758967, -0.808082, 1.83474e-08, -0.589069, 15.4999, 15.981, 0.862917 )
+light_energy = 2.38
+light_indirect_energy = 0.0
+shadow_enabled = true
 [connection signal="timeout" from="EnemySpawn_Timer" to="." method="_on_EnemySpawn_Timer_timeout"]
