@@ -25,13 +25,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.919402, 0 )
 
 [node name="Camera" type="Camera" parent="Head"]
 
+[node name="Carrying" type="Spatial" parent="Head/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0515666, -3.33789 )
+
 [node name="gun" parent="Head/Camera" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.288, -0.276, 0.32591 )
 script = ExtResource( 2 )
 default_position = Vector3( 0.288, -0.3, -0.2 )
 camera_path = NodePath("..")
 Bullet = ExtResource( 3 )
-Rocket = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -39,7 +41,6 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-cast_shadow = 0
 mesh = SubResource( 2 )
 material/0 = null
 

@@ -20,9 +20,6 @@ var big_expl = preload("res://BigExplosion.tscn")
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-	if Globals.DEBUG_START_POS:
-		$Player.translation = $StartPosition.translation
-	
 	start_pos = $Player.translation
 	prev_start_pos0 = $Player.translation
 	prev_start_pos1 = $Player.translation

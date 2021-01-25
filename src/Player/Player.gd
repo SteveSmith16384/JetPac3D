@@ -12,7 +12,7 @@ var main : Main
 onready var head = $Head
 onready var camera = $Head/Camera
 
-var gun
+#var gun
 
 var velocity = Vector3()
 var camera_x_rotation = 0
@@ -24,7 +24,7 @@ var actually_play_footstep : bool = true
 
 func _ready():
 	main = get_tree().get_root().get_node("Main")
-	gun = $Head/Camera/gun
+	#gun = $Head/Camera/gun
 	pass
 	
 
@@ -82,7 +82,7 @@ func _physics_process(delta):
 			coll.collided(self)
 		pass
 	
-	if play_footstep:
+	if play_footstep and is_on_floor():
 		play_footstep()
 		
 	if self.translation.y < -3:
